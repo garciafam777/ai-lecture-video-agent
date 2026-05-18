@@ -13,7 +13,7 @@ export default function Home() {
     setLoadingStage("Generating scenes with AI...");
 
     try {
-      const res = await axios.post("http://localhost:5000/api/video/create", {
+      const res = await axios.post("http://localhost:5004/api/video/create", {
         script
       });
 
@@ -33,7 +33,7 @@ export default function Home() {
     setLoadingStage("Running full pipeline: AI → Voice → Slides...");
 
     try {
-      const res = await axios.post("http://localhost:5000/api/video/create-full", {
+      const res = await axios.post("http://localhost:5004/api/video/create-full", {
         script
       });
 
@@ -50,7 +50,7 @@ export default function Home() {
   };
 
   const downloadVideo = () => {
-    window.open("http://localhost:5000/api/video/download", "_blank");
+    window.open("http://localhost:5004/api/video/download", "_blank");
   };
 
   return (
@@ -188,7 +188,7 @@ export default function Home() {
                   {scene.audioUrl && (
                     <div style={{ marginTop: 12 }}>
                       <audio controls style={{ width: "100%" }}>
-                        <source src={`http://localhost:5000${scene.audioUrl}`} type="audio/mpeg" />
+                        <source src={`http://localhost:5004${scene.audioUrl}`} type="audio/mpeg" />
                         Your browser does not support the audio element.
                       </audio>
                     </div>
@@ -218,13 +218,13 @@ export default function Home() {
                     justifyContent: "center",
                     alignItems: "center",
                     padding: 24,
-                    textAlign: "center"
+                    textAlign: "center"00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
                   }}>
                     <div style={{ fontSize: 12, opacity: 0.5, marginBottom: 8 }}>{i + 1} / {scenes.length}</div>
                     <h3 style={{ fontSize: 20, marginBottom: 12, color: scene.visual_style?.accent || "#e94560" }}>{scene.title}</h3>
                     <p style={{ fontSize: 14, lineHeight: 1.5, opacity: 0.9 }}>{scene.narration.substring(0, 100)}...</p>
                     <a 
-                      href={`http://localhost:5000/slides/scene-${i}.html`}
+                      href={`http://localhost:5004/slides/scene-${i}.html`}
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{
